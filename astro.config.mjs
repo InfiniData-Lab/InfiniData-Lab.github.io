@@ -25,7 +25,7 @@ const whenExternalScripts = (items = []) =>
     : [];
 
 export default defineConfig({
-  site: SITE.site,
+  site: 'https://infinidata-lab.github.io/'
   base: SITE.base,
   trailingSlash: SITE.trailingSlash ? 'always' : 'never',
 
