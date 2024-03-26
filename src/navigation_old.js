@@ -1,14 +1,60 @@
-import { getHomePermalink, getPermalink, getBlogPermalink, getAsset } from './utils/permalinks';
+import { getPermalink, getBlogPermalink, getAsset } from './utils/permalinks';
 
 export const headerData = {
   links: [
     {
-      text: 'Home',
-      href: getHomePermalink(),
+      text: 'Homes',
+      links: [
+        {
+          text: 'SaaS',
+          href: getPermalink('/homes/saas'),
+        },
+        {
+          text: 'Startup',
+          href: getPermalink('/homes/startup'),
+        },
+        {
+          text: 'Mobile App',
+          href: getPermalink('/homes/mobile-app'),
+        },
+        {
+          text: 'Personal',
+          href: getPermalink('/homes/personal'),
+        },
+      ],
     },
     {
-      text: 'People',
-      href: 'people',
+      text: 'Pages',
+      links: [
+        {
+          text: 'Features (Anchor Link)',
+          href: getPermalink('/#features'),
+        },
+        {
+          text: 'Services',
+          href: getPermalink('/services'),
+        },
+        {
+          text: 'Pricing',
+          href: getPermalink('/pricing'),
+        },
+        {
+          text: 'About us',
+          href: getPermalink('/about'),
+        },
+        {
+          text: 'Contact',
+          href: getPermalink('/contact'),
+        },
+        {
+          text: 'Terms',
+          href: getPermalink('/terms'),
+        },
+        {
+          text: 'Privacy policy',
+          href: getPermalink('/privacy'),
+        },
+      ],
     },
     {
       text: 'Landing',

@@ -1,4 +1,5 @@
 ---
+import Image from '~/components/common/Image.astro';
 import { Icon } from "astro-icon/components";
 import { twMerge } from "tailwind-merge";
 import type { ItemGrid } from "~/types";
@@ -42,6 +43,7 @@ const {
           title,
           description,
           icon,
+          image,
           callToAction,
           classes: itemClasses = {},
         }) => (
@@ -62,9 +64,27 @@ const {
                 )}
               />
             )}
+            {
+              image && (
+                <div class="relative m-auto max-w-5xl">
+                  {typeof image === 'string' ? (
+                    <Fragment set:html={image} />
+                  ) : (
+                    <Image
+                      class="mx-auto rounded-md h-full"
+                      sizes="(max-width: 767px) 400px, (max-width: 1023px) 768px, (max-width: 2039px) 1024px, 2040px"
+                      loading="eager"
+                      width={200}
+                      height={276}
+                      {...image}
+                    />
+                  )}
+                </div>
+              )
+            }
             <div
               class={twMerge(
-                "text-xl font-bold",
+                "text-xl font-bold text-center",
                 titleClass,
                 itemClasses?.title
               )}
