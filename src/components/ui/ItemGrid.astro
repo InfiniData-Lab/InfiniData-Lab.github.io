@@ -3,6 +3,7 @@ import { twMerge } from 'tailwind-merge';
 import type { ItemGrid } from '~/types';
 import Button from './Button.astro';
 import { Icon } from 'astro-icon/components';
+import Image from '~/components/common/Image.astro';
 
 const { items = [], columns, defaultIcon = '', classes = {} } = Astro.props as ItemGrid;
 
@@ -20,37 +21,47 @@ const {
   items && (
     <div
       class={twMerge(
-        `grid mx-auto gap-8 md:gap-y-12 ${
+        `grid mx-auto gap-8 md:gap-y-12 md:basis-3/5 self-center ${
           columns === 4
-            ? 'lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2'
+            ? 'lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 md:basis-3/5 self-center'
             : columns === 3
-            ? 'lg:grid-cols-3 sm:grid-cols-2'
+            ? 'lg:grid-cols-3 sm:grid-cols-2 md:basis-3/5 self-center'
             : columns === 2
-            ? 'sm:grid-cols-2 '
+            ? 'sm:grid-cols-2 md:basis-3/5 self-center'
             : ''
         }`,
         containerClass
       )}
     >
-      {items.map(({ title, description, icon, callToAction, classes: itemClasses = {} }) => (
+      {items.map(({ title, description, image, icon, paperurl,blogurl, callToAction, classes: itemClasses = {} }) => (
         <div>
           <div class={twMerge('flex flex-row max-w-md', panelClass, itemClasses?.panel)}>
-            <div class="flex justify-center">
-              {(icon || defaultIcon) && (
-                <Icon
-                  name={icon || defaultIcon}
+             <div class="flex md:basis-1/7 self-center">
+             {icon && (
+              <Button variant="link" {...blogurl}>
+              <Icon
+                  name={icon}
                   class={twMerge('w-7 h-7 mr-2 rtl:mr-0 rtl:ml-2', defaultIconClass, itemClasses?.icon)}
+                />
+              </Button>
+              )}
+             {defaultIcon && (
+              <Button variant="link" {...blogurl}>
+              <Icon
+                  name={defaultIcon}
+                  class={twMerge('w-7 h-7 mr-2 rtl:mr-0 rtl:ml-2', defaultIconClass, itemClasses?.icon)}
+                />
+              </Button>
+              )}
+             {image && (
+              <Image
+                  class="h-90 w-full rounded-lg bg-white-500 shadow-lg"
+                  width=99%
+                  {...(image as any)}
                 />
               )}
             </div>
-            <div class="mt-0.5">
-              {title && <h3 class={twMerge('text-xl font-bold', titleClass, itemClasses?.title)}>{title}</h3>}
-              {description && (
-                <p
-                  class={twMerge(`${title ? 'mt-3' : ''} text-muted`, descriptionClass, itemClasses?.description)}
-                  set:html={description}
-                />
-              )}
+            <div class="mt-0.5 md:basis-5/6 self-center">
               {callToAction && (
                 <div
                   class={twMerge(
@@ -61,6 +72,32 @@ const {
                 >
                   <Button variant="link" {...callToAction} />
                 </div>
+              )}
+              <div class={twMerge('flex flex-row max-w-md', panelClass, itemClasses?.panel)}>
+              {paperurl && (
+                <Button variant="link" {...paperurl} >
+                    <Icon
+                        name="tabler:article"
+                        class={twMerge('w-7 h-7 mr-2 rtl:mr-0 rtl:ml-2', defaultIconClass, itemClasses?.icon)}
+                      />
+                    </Button>
+              )}
+              {blogurl && (
+                <Button variant="link" {...blogurl} >
+                    <Icon
+                        name="tabler:presentation"
+                        class={twMerge('w-7 h-7 mr-2 rtl:mr-0 rtl:ml-2', defaultIconClass, itemClasses?.icon)}
+                      />
+                    </Button>
+              )}
+              </div>
+
+              {title && <h3 class={twMerge('text-xl font-bold', titleClass, itemClasses?.title)}>{title}</h3>}
+              {description && (
+                <p
+                  class={twMerge(`${title ? 'mt-3' : ''} text-muted`, descriptionClass, itemClasses?.description)}
+                  set:html={description}
+                />
               )}
             </div>
           </div>

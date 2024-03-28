@@ -33,7 +33,7 @@ const {
 >
   <Headline title={title} subtitle={subtitle} tagline={tagline} classes={classes?.headline} />
 
-  <div aria-hidden="true" class="aspect-w-16 aspect-h-7">
+  <div aria-hidden="true" class="aspect-w-16 aspect-h-7 ">
     {
       image && (
         <div class="w-full h-80 object-cover rounded-xl mx-auto bg-gray-500 shadow-lg">
@@ -55,16 +55,17 @@ const {
   </div>
 
   <ItemGrid
-    items={items}
-    columns={columns}
-    defaultIcon={defaultIcon}
-    classes={{
-      container: 'mt-12',
-      panel: 'max-w-full sm:max-w-md',
-      title: 'text-lg font-semibold',
-      description: 'mt-0.5',
-      icon: 'flex-shrink-0 mt-1 text-primary w-6 h-6',
-      ...((classes?.items as {}) ?? {}),
-    }}
-  />
+          items={items}
+          columns={columns}
+          defaultIcon={defaultIcon}
+          classes={{
+            container: `gap-y-4 md:gap-y-8`,
+            panel: 'max-w-none',
+            title: 'text-lg font-medium leading-6 dark:text-white ml-2 rtl:ml-0 rtl:mr-2',
+            description: 'text-muted dark:text-slate-400 ml-2 rtl:ml-0 rtl:mr-2',
+            icon: 'flex h-7 w-7 items-center justify-center rounded-full bg-blue-600 dark:bg-green-700 text-gray-50 p-1',
+            action: 'text-lg font-medium leading-6 dark:text-white ml-2 rtl:ml-0 rtl:mr-2',
+          }}
+        />
+
 </WidgetWrapper>
