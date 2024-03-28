@@ -36,30 +36,30 @@ const {
       {items.map(({ title, description, image, icon, paperurl,blogurl, callToAction, classes: itemClasses = {} }) => (
         <div>
           <div class={twMerge('flex flex-row max-w-md', panelClass, itemClasses?.panel)}>
-             <div class="flex md:basis-1/7 self-center">
-             {icon && (
-              <Button variant="link" {...blogurl}>
-              <Icon
-                  name={icon}
-                  class={twMerge('w-7 h-7 mr-2 rtl:mr-0 rtl:ml-2', defaultIconClass, itemClasses?.icon)}
-                />
-              </Button>
-              )}
-             {defaultIcon && (
-              <Button variant="link" {...blogurl}>
-              <Icon
-                  name={defaultIcon}
-                  class={twMerge('w-7 h-7 mr-2 rtl:mr-0 rtl:ml-2', defaultIconClass, itemClasses?.icon)}
-                />
-              </Button>
-              )}
-             {image && (
-              <Image
-                  class="h-90 w-full rounded-lg bg-white-500 shadow-lg"
-                  width=99%
-                  {...(image as any)}
-                />
-              )}
+             <div class="flex md:basis-1/7">
+               {icon && (
+                <Button variant="link" {...blogurl}>
+                <Icon
+                    name={icon}
+                    class={twMerge('w-7 h-7 mr-2 rtl:mr-0 rtl:ml-2', defaultIconClass, itemClasses?.icon)}
+                  />
+                </Button>
+                )}
+               {defaultIcon && (
+                <Button variant="link" {...blogurl}>
+                <Icon
+                    name={defaultIcon}
+                    class={twMerge('w-7 h-7 mr-2 rtl:mr-0 rtl:ml-2', defaultIconClass, itemClasses?.icon)}
+                  />
+                </Button>
+                )}
+               {image && (
+                <Image
+                    class="h-90 w-full rounded-lg bg-white-500 shadow-lg"
+                    width=99%
+                    {...(image as any)}
+                  />
+                )}
             </div>
             <div class="mt-0.5 md:basis-5/6 self-center">
               {callToAction && (
@@ -91,7 +91,6 @@ const {
                     </Button>
               )}
               </div>
-
               {title && <h3 class={twMerge('text-xl font-bold', titleClass, itemClasses?.title)}>{title}</h3>}
               {description && (
                 <p
