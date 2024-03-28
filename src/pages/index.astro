@@ -6,6 +6,7 @@ import Note from '~/components/widgets/Note.astro';
 import Features from '~/components/widgets/Features.astro';
 import Features2 from '~/components/widgets/Features2.astro';
 import Features3 from '~/components/widgets/Features3.astro';
+import FeaturesCenter from '~/components/widgets/FeaturesCenter.astro';
 import Steps from '~/components/widgets/Steps.astro';
 import Content from '~/components/widgets/Content.astro';
 import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
@@ -75,7 +76,7 @@ const metadata = {
   />
 
 
-  <Features3
+  <FeaturesCenter
       id="publications"
       title="Publications"
       columns={1}
@@ -110,7 +111,7 @@ const metadata = {
       <Fragment slot="bg">
         <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
       </Fragment>
-    </Features3>
+    </FeaturesCenter>
 
 
 

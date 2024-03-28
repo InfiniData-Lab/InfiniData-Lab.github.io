@@ -1,0 +1,71 @@
+---
+import Headline from '~/components/ui/Headline.astro';
+import ItemGridCenter from '~/components/ui/ItemGridCenter.astro';
+import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
+import Image from '~/components/common/Image.astro';
+import type { Features } from '~/types';
+
+const {
+  title = await Astro.slots.render('title'),
+  subtitle = await Astro.slots.render('subtitle'),
+  tagline = await Astro.slots.render('tagline'),
+  image,
+  items = [],
+  columns,
+  defaultIcon,
+  isBeforeContent,
+  isAfterContent,
+
+  id,
+  isDark = false,
+  classes = {},
+  bg = await Astro.slots.render('bg'),
+} = Astro.props as Features;
+---
+
+<WidgetWrapper
+  id={id}
+  isDark={isDark}
+  containerClass={`${isBeforeContent ? 'md:pb-8 lg:pb-12' : ''} ${isAfterContent ? 'pt-0 md:pt-0 lg:pt-0' : ''} ${
+    classes?.container ?? ''
+  }`}
+  bg={bg}
+>
+  <Headline title={title} subtitle={subtitle} tagline={tagline} classes={classes?.headline} />
+
+  <div aria-hidden="true" class="aspect-w-16 aspect-h-7 ">
+    {
+      image && (
+        <div class="w-full h-80 object-cover rounded-xl mx-auto bg-gray-500 shadow-lg">
+          {typeof image === 'string' ? (
+            <Fragment set:html={image} />
+          ) : (
+            <Image
+              class="w-full h-80 object-cover rounded-xl mx-auto bg-gray-500 shadow-lg"
+              width="auto"
+              height={320}
+              widths={[400, 768]}
+              layout="fullWidth"
+              {...(image as any)}
+            />
+          )}
+        </div>
+      )
+    }
+  </div>
+
+  <ItemGridCenter
+          items={items}
+          columns={columns}
+          defaultIcon={defaultIcon}
+          classes={{
+            container: `gap-y-4 md:gap-y-8`,
+            panel: 'max-w-none',
+            title: 'text-lg font-medium leading-6 dark:text-white ml-2 rtl:ml-0 rtl:mr-2',
+            description: 'text-muted dark:text-slate-400 ml-2 rtl:ml-0 rtl:mr-2',
+            icon: 'flex h-7 w-7 items-center justify-center rounded-full bg-blue-600 dark:bg-green-700 text-gray-50 p-1',
+            action: 'text-lg font-medium leading-6 dark:text-white ml-2 rtl:ml-0 rtl:mr-2',
+          }}
+        />
+
+</WidgetWrapper>
