@@ -9,6 +9,8 @@
 
 Add your post under this folder: `./src/content/post`
 
+Edit your profile under `./src/pages/people.astro` and `./src/pages/index.astro`.
+
 # Components
 
 [![onWidget](https://custom-icon-badges.demolab.com/badge/made%20by%20-onWidget-556bf2?style=flat-square&logo=onwidget&logoColor=white&labelColor=101827)](https://onwidget.com)
