@@ -1,0 +1,65 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+
+import Hero from '~/components/widgets/Hero.astro';
+import HeroText from '~/components/widgets/HeroText.astro';
+import Steps from '~/components/widgets/Steps.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+import Features2 from '~/components/widgets/Features2.astro';
+import Features from '~/components/widgets/Features.astro';
+import Stats from '~/components/widgets/Stats.astro';
+import Features3 from '~/components/widgets/Features3.astro';
+import FAQs from '~/components/widgets/FAQs.astro';
+import Brands from '~/components/widgets/Brands.astro';
+
+import YoutubeVideo from '~/components/common/YoutubeVideo.astro';
+
+const metadata = {
+  title: 'People',
+};
+---
+
+<Layout metadata={metadata}>
+
+  <!-- People Widget ******************* -->
+
+  <Hero>
+    <Fragment slot="title">
+      <!--Free template for <span class="hidden xl:inline">creating websites with</span> -->
+      <!--<span class="text-accent dark:text-white highlight"> Astro 4.0</span> + Tailwind CSS -->
+      <span class="text-accent dark:text-white highlight"> AI in Data Lakes</span>
+    </Fragment>
+
+    <Fragment slot="subtitle">
+      <span class="hidden sm:inline">
+      At Infinidata Lab, we recognize the potential of AI to transform data lakes into reservoirs of actionable insights. 
+      By embracing multimodal data, our solutions can analyze and process various types of information, from text and images to complex datasets. 
+      This approach is turbocharged with GPU acceleration, which dramatically speeds up the computation, allowing our AI models to learn and adapt at unprecedented rates.
+      This synergy not only enhances data utility but also optimizes resource usage, propelling businesses towards smarter and faster decision-making processes.
+    </Fragment>
+  </Hero>
+
+  <Features2
+    items={[
+      {
+        title: 'Rihan Hai',
+        description: "Ever tried driving without GPS? Boom! That's why websites need headers for direction.",
+        image: { src: 'https://www.wis.ewi.tudelft.nl/assets/img/people/rihan.jpg', alt: 'AstroWind Hero Image' },
+      },
+      {
+        title: 'Wenbo Sun',
+        description: "Ever tried driving without GPS? Boom! That's why websites need headers for direction.",
+        image: {src: 'https://www.wis.ewi.tudelft.nl/assets/img/people/wenbosun.jpg', alt: ''}
+      },
+      {
+        title: 'Ziyu Li',
+        description: "Ever tried driving without GPS? Boom! That's why websites need headers for direction.",
+        image: {src: 'https://www.wis.ewi.tudelft.nl/assets/img/people/ziyu_li.jpg', alt: ''}
+      },
+    ]}
+  />
+  </Features2>
+
+
+</Layout>

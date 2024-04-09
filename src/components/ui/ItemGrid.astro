@@ -33,12 +33,12 @@ const {
         containerClass
       )}
     >
-      {items.map(({ title, description, image, icon, paperurl,blogurl, callToAction, classes: itemClasses = {} }) => (
+      {items.map(({ title, description, image, icon, paperurl,blogurl, pageurl,callToAction, classes: itemClasses = {} }) => (
         <div>
           <div class={twMerge('flex flex-row max-w-md', panelClass, itemClasses?.panel)}>
              <div class="flex md:basis-1/7">
                {icon && (
-                <Button variant="link" {...blogurl}>
+                <Button variant="link" {...pageurl}>
                 <Icon
                     name={icon}
                     class={twMerge('w-7 h-7 mr-2 rtl:mr-0 rtl:ml-2', defaultIconClass, itemClasses?.icon)}
@@ -46,7 +46,7 @@ const {
                 </Button>
                 )}
                {defaultIcon && (
-                <Button variant="link" {...blogurl}>
+                <Button variant="link" {...pageurl}>
                 <Icon
                     name={defaultIcon}
                     class={twMerge('w-7 h-7 mr-2 rtl:mr-0 rtl:ml-2', defaultIconClass, itemClasses?.icon)}
@@ -60,15 +60,19 @@ const {
                     {...(image as any)}
                   />
                 )}
+
             </div>
             <div class="mt-0.5 md:basis-5/6 self-center">
               {callToAction && (
+                // <div
+                //   class={twMerge(
+                //     `${title || description ? 'mt-3' : ''}`,
+                //     actionClass,
+                //     itemClasses?.actionClass
+                //   )}
+                // >
                 <div
-                  class={twMerge(
-                    `${title || description ? 'mt-3' : ''}`,
-                    actionClass,
-                    itemClasses?.actionClass
-                  )}
+                  class={twMerge('text-xl font-bold', actionClass, itemClasses?.actionClass)}
                 >
                   <Button variant="link" {...callToAction} />
                 </div>

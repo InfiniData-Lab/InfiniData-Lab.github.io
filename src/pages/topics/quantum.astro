@@ -1,0 +1,73 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+
+import Hero from '~/components/widgets/Hero.astro';
+import HeroText from '~/components/widgets/HeroText.astro';
+import Steps from '~/components/widgets/Steps.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+import Features2 from '~/components/widgets/Features2.astro';
+import Features from '~/components/widgets/Features.astro';
+import Stats from '~/components/widgets/Stats.astro';
+import Features3 from '~/components/widgets/Features3.astro';
+import FAQs from '~/components/widgets/FAQs.astro';
+import Brands from '~/components/widgets/Brands.astro';
+
+import YoutubeVideo from '~/components/common/YoutubeVideo.astro';
+
+const metadata = {
+  title: 'People',
+};
+---
+
+<Layout metadata={metadata}>
+
+  <!-- People Widget ******************* -->
+
+  <Features2
+    title="Assitant Professor"
+    items={[
+      {
+        title: 'Rihan Hai',
+        description: "Ever tried driving without GPS? Boom! That's why websites need headers for direction.",
+        image: { src: 'https://www.wis.ewi.tudelft.nl/assets/img/people/rihan.jpg', alt: 'AstroWind Hero Image' },
+      },
+    ]}
+  />
+  <Features2
+    title="PhD"
+    items={[
+      {
+        title: 'Wenbo Sun',
+        description: "Ever tried driving without GPS? Boom! That's why websites need headers for direction.",
+        image: {src: 'https://www.wis.ewi.tudelft.nl/assets/img/people/wenbosun.jpg', alt: ''}
+      },
+      {
+        title: 'Danning Zhan',
+        description: "Ever tried driving without GPS? Boom! That's why websites need headers for direction.",
+        image: {src: 'https://www.wis.ewi.tudelft.nl/assets/img/people/danning%20zhan.jpg', alt: ''}
+      },
+      {
+        title: 'Aditya Shankar',
+        description: "Ever tried driving without GPS? Boom! That's why websites need headers for direction.",
+        image: {src: 'https://www.wis.ewi.tudelft.nl/assets/img/people/shankar.jpg', alt:''}
+      },
+    ]}
+  />
+  <Features2
+    title="Postdoc"
+    items={[
+      {
+        title: 'Ziyu Li',
+        description: "Ever tried driving without GPS? Boom! That's why websites need headers for direction.",
+        image: {src: 'https://www.wis.ewi.tudelft.nl/assets/img/people/ziyu_li.jpg',alt:''}
+      }
+    ]}
+  />
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Features2>
+
+
+</Layout>
