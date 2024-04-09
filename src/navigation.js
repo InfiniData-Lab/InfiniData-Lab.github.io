@@ -28,7 +28,7 @@ export const headerData = {
             },
             {
               text: 'Privacy',
-              href: getPermalink('privacy', 'tag'),
+              href: getPermalink('data-privacy', 'tag'),
             },
           ],
         },
