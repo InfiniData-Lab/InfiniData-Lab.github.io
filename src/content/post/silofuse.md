@@ -1,35 +1,18 @@
-
-  
-
 ---
-
-publishDate: 2024-04-04
-
-title: SiloFuse: Cross-silo Synthetic Data Generation with Latent Tabular Diffusion Models
-
+publishDate: 2024-04-04T00:00:00Z
+title: "SiloFuse: Cross-silo Synthetic Data Generation with Latent Tabular Diffusion Models"
 excerpt: Privacy-preserving synthesis of feature-partitioned data
-
 image: ~/assets/images/project/silofuse/latentddpm.png
-
 category: project
-
 tags:
-
-- machine-learning
-
-- federated-learning
-
-- distributed-databases
-
-- data-privacy
-
+  - machine-learning
+  - federated-learning
+  - distributed-databases
+  - data-privacy
 metadata:
-
-canonical: https://astrowind.vercel.app/amalur
-
+  canonical: https://astrowind.vercel.app/amalur
 ---
 
-  
 
 ## Abstract
 The paper introduces a new method called _SiloFuse_, which addresses the challenge of creating realistic synthetic data from multiple sources while preserving privacy. Unlike existing methods designed for centrally stored data, SiloFuse is tailored for scenarios where data features are distributed across various silos, necessitating on-premise data storage. It utilizes a **distributed latent tabular diffusion** architecture to ensure privacy. This involves using autoencoders to learn latent representations of each client's features, effectively masking their actual values. Through **stacked distributed training**, communication efficiency is improved, reducing the number of training rounds to a single step. The paper demonstrates SiloFuse's effectiveness through experimental results on nine datasets, showing its superiority over centralized diffusion-based synthesizers. Notably, SiloFuse outperforms GANs in resemblance and utility by 43.8% and 29.8%, respectively. Additionally, SiloFuse is robust to feature permutations and varying numbers of clients. Overall, SiloFuse offers a promising solution for generating high-quality synthetic data from cross-silo tabular data while maintaining privacy and efficiency.
