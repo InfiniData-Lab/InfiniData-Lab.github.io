@@ -3,7 +3,7 @@ publishDate: 2023-08-06T00:00:00Z
 title: Amalur
 excerpt: The Convergence of Data Integration an Machin Learning
 image: ~/assets/images/project/amalur-scope.png
-category: project
+category: model-lake
 tags:
   - machine-learning
   - data-integration

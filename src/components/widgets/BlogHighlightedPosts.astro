@@ -4,7 +4,7 @@ import { APP_BLOG } from "~/utils/config";
 import Grid from "~/components/blog/Grid.astro";
 
 import { getBlogPermalink } from "~/utils/permalinks";
-import { findPostsByIds } from "~/utils/blog";
+import { findPostsByIds, findPostsByCategory, findLatestPosts } from "~/utils/blog";
 import WidgetWrapper from "~/components/ui/WidgetWrapper.astro";
 import type { Widget } from "~/types";
 
@@ -22,6 +22,8 @@ const {
   linkUrl = getBlogPermalink(),
   information = await Astro.slots.render("information"),
   postIds = [],
+  category = await Astro.slots.render("category"),
+  count=4,
 
   id,
   isDark = false,
@@ -29,7 +31,9 @@ const {
   bg = await Astro.slots.render("bg"),
 } = Astro.props;
 
-const posts = APP_BLOG.isEnabled ? await findPostsByIds(postIds) : [];
+// const posts = APP_BLOG.isEnabled ? await findPostsByIds(postIds) : [];
+const posts = APP_BLOG.isEnabled ? await findPostsByCategory([category]) : [];
+// const posts = APP_BLOG.isEnabled ? await findLatestPosts({ count }) : [];
 ---
 
 {
@@ -47,7 +51,7 @@ const posts = APP_BLOG.isEnabled ? await findPostsByIds(postIds) : [];
                 class="text-muted dark:text-slate-400 hover:text-primary transition ease-in duration-200 block mb-6 lg:mb-0"
                 href={linkUrl}
               >
-                {linkText} »
+                {linkText}»
               </a>
             )}
           </div>

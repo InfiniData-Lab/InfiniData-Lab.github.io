@@ -3,7 +3,7 @@ publishDate: 2024-04-04T00:00:00Z
 title: "SiloFuse: Cross-silo Synthetic Data Generation with Latent Tabular Diffusion Models"
 excerpt: Privacy-preserving synthesis of feature-partitioned data
 image: ~/assets/images/project/silofuse/latentddpm.png
-category: project
+category: federated-learning
 tags:
   - machine-learning
   - federated-learning

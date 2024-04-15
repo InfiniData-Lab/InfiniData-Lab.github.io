@@ -19,16 +19,16 @@ export const headerData = {
               href: getPermalink('amalur', 'post'),
             },
             {
-              text: 'Projects',
-              href: getPermalink('project', 'category'),
-            },
-            {
               text: 'Model Lake',
-              href: getPermalink('model-lake', 'tag'),
+              href: getPermalink('model-lake', 'category'),
             },
             {
               text: 'Privacy',
-              href: getPermalink('data-privacy', 'tag'),
+              href: getPermalink('federated-learning', 'category'),
+            },
+            {
+              text: 'Quantum',
+              href: getPermalink('quantum', 'category'),
             },
           ],
         },

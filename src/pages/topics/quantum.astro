@@ -5,6 +5,7 @@ import Hero from '~/components/widgets/Hero.astro';
 import HeroText from '~/components/widgets/HeroText.astro';
 import Steps from '~/components/widgets/Steps.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
+import BlogHighlightedPosts from '~/components/widgets/BlogHighlightedPosts.astro';
 
 import Features2 from '~/components/widgets/Features2.astro';
 import Features from '~/components/widgets/Features.astro';
@@ -49,10 +50,12 @@ const metadata = {
       },
     ]}
   />
-    <Fragment slot="bg">
-      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
-    </Fragment>
-  </Features2>
+  <BlogHighlightedPosts
+      title="Find out more content in our Blog"
+      information={`The digestion of our on-going projects
+                  `}  
+      category='quantum'
+  />
 
 
 </Layout>
