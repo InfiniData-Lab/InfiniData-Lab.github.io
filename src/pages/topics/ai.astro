@@ -5,6 +5,9 @@ import Hero from '~/components/widgets/Hero.astro';
 import HeroText from '~/components/widgets/HeroText.astro';
 import Steps from '~/components/widgets/Steps.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
+import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
+import BlogHighlightedPosts from '~/components/widgets/BlogHighlightedPosts.astro';
+import Tags from '~/components/blog/Tags.astro';
 
 import Features2 from '~/components/widgets/Features2.astro';
 import Features from '~/components/widgets/Features.astro';
@@ -40,6 +43,7 @@ const metadata = {
     </Fragment>
   </Hero>
 
+
   <Features2
     items={[
       {
@@ -59,7 +63,16 @@ const metadata = {
       },
     ]}
   />
-  </Features2>
+  <BlogLatestPosts
+      title="Find out more content in our Blog"
+      information={`The digestion of our on-going projects
+                  `}  
+  />
+
+  <Tags
+    title='Read more about our project'
+    tags='model-lake'
+  />
 
 
 </Layout>
