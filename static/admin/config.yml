@@ -1,0 +1,193 @@
+# Sveltia CMS configuration.
+#
+# Local editing (no credentials): open http://localhost:5173/admin/ and click
+#   "Work with Local Repository", then pick this project's folder. Sveltia reads & writes the
+#   Markdown files directly via the browser File System Access API — no proxy, no login needed.
+#   (Chromium-based browsers; alternatively run `npx @sveltia/cms-proxy-server`.)
+#
+# Production (added in the deployment phase): point `backend.base_url` at the Cloudflare
+# Worker (sveltia-cms-auth) so editors can "Sign in with GitHub".
+
+backend:
+  name: github
+  repo: InfiniData-Lab/InfiniData-Lab.github.io
+  branch: main
+
+local_backend: true
+
+media_folder: static/uploads
+public_folder: /uploads
+
+collections:
+  - name: people
+    label: People
+    label_singular: Person
+    folder: src/content/people
+    create: true
+    identifier_field: name
+    slug: '{{slug}}'
+    summary: '{{name}} — {{fields.role}}'
+    sortable_fields: [order, name]
+    fields:
+      - { name: name, label: Name, widget: string }
+      - name: role
+        label: Role
+        widget: select
+        options: [PI, Postdoc, PhD, MSc, BSc, Visiting, Alumni]
+        default: PhD
+      - { name: title, label: Title line, widget: string, required: false, hint: 'e.g. PhD Candidate' }
+      - { name: photo, label: Photo, widget: image, required: false }
+      - { name: order, label: Sort order, widget: number, required: false, value_type: int }
+      - { name: featured, label: Featured, widget: boolean, required: false, default: false }
+      - { name: interests, label: Research interests, widget: list, required: false }
+      - name: links
+        label: Links
+        widget: object
+        required: false
+        collapsed: true
+        fields:
+          - { name: website, label: Website, widget: string, required: false }
+          - { name: scholar, label: Google Scholar, widget: string, required: false }
+          - { name: dblp, label: DBLP, widget: string, required: false }
+          - { name: github, label: GitHub, widget: string, required: false }
+          - { name: linkedin, label: LinkedIn, widget: string, required: false }
+          - { name: email, label: Email, widget: string, required: false }
+      - { name: body, label: Bio, widget: markdown }
+
+  - name: projects
+    label: Projects
+    label_singular: Project
+    folder: src/content/projects
+    create: true
+    identifier_field: name
+    slug: '{{slug}}'
+    summary: '{{name}}'
+    sortable_fields: [order, name]
+    fields:
+      - { name: name, label: Name, widget: string }
+      - { name: tagline, label: Tagline, widget: string, required: false, hint: 'short category, e.g. Model Lake' }
+      - { name: status, label: Status, widget: select, options: [active, completed], default: active }
+      - { name: order, label: Sort order, widget: number, required: false, value_type: int }
+      - { name: featured, label: Featured, widget: boolean, required: false, default: true }
+      - name: pillars
+        label: Research pillars
+        widget: select
+        multiple: true
+        required: false
+        options:
+          - AI in Data & Model Lakes
+          - Federated & Private Learning
+          - Quantum Data Management
+      - { name: tags, label: Tags, widget: list, required: false }
+      - { name: venue, label: Venue badge, widget: string, required: false, hint: 'e.g. SIGMOD 2025' }
+      - { name: award, label: Award, widget: string, required: false }
+      - { name: image, label: Image, widget: image, required: false }
+      - name: links
+        label: Links
+        widget: object
+        required: false
+        collapsed: true
+        fields:
+          - { name: github, label: Code (GitHub), widget: string, required: false }
+          - { name: paper, label: Paper, widget: string, required: false }
+          - { name: dataset, label: Dataset, widget: string, required: false }
+          - { name: demo, label: Demo, widget: string, required: false }
+          - { name: website, label: Website, widget: string, required: false }
+      - { name: body, label: Description, widget: markdown }
+
+  - name: publications
+    label: Publications
+    label_singular: Publication
+    folder: src/content/publications
+    create: true
+    identifier_field: title
+    slug: '{{slug}}'
+    summary: '{{title}} ({{fields.year}})'
+    sortable_fields: [year, title]
+    fields:
+      - { name: title, label: Title, widget: string }
+      - { name: authors, label: Authors, widget: list, hint: 'one per item, full names' }
+      - { name: year, label: Year, widget: number, value_type: int }
+      - { name: venue, label: Venue, widget: string, hint: 'e.g. SIGMOD, PVLDB, ICDE' }
+      - name: type
+        label: Type
+        widget: select
+        options: [conference, journal, workshop, preprint, demo]
+        default: conference
+      - name: pillars
+        label: Research pillars
+        widget: select
+        multiple: true
+        required: false
+        options:
+          - AI in Data & Model Lakes
+          - Federated & Private Learning
+          - Quantum Data Management
+      - { name: award, label: Award, widget: string, required: false }
+      - { name: featured, label: Featured, widget: boolean, required: false, default: false }
+      - name: links
+        label: Links
+        widget: object
+        required: false
+        collapsed: true
+        fields:
+          - { name: pdf, label: PDF, widget: string, required: false }
+          - { name: doi, label: DOI, widget: string, required: false }
+          - { name: arxiv, label: arXiv, widget: string, required: false }
+          - { name: code, label: Code, widget: string, required: false }
+          - { name: dataset, label: Dataset, widget: string, required: false }
+          - { name: slides, label: Slides, widget: string, required: false }
+          - { name: video, label: Video, widget: string, required: false }
+      - { name: body, label: Abstract, widget: markdown, required: false }
+
+  - name: blog
+    label: Blog posts
+    label_singular: Blog post
+    folder: src/content/blog
+    create: true
+    identifier_field: title
+    slug: '{{slug}}'
+    summary: '{{title}} — {{fields.date}}'
+    sortable_fields: [date, title]
+    fields:
+      - { name: title, label: Title, widget: string }
+      - { name: date, label: Date, widget: datetime, format: 'YYYY-MM-DD', date_format: 'YYYY-MM-DD', time_format: false }
+      - { name: authors, label: Authors, widget: list, required: false }
+      - { name: excerpt, label: Excerpt, widget: text, required: false }
+      - { name: cover, label: Cover image, widget: image, required: false }
+      - { name: tags, label: Tags, widget: list, required: false }
+      - { name: featured, label: Featured, widget: boolean, required: false, default: false }
+      - { name: body, label: Body, widget: markdown }
+
+  - name: events
+    label: Events
+    label_singular: Event
+    folder: src/content/events
+    create: true
+    identifier_field: title
+    slug: '{{slug}}'
+    summary: '{{title}} — {{fields.startDate}}'
+    sortable_fields: [startDate, title]
+    fields:
+      - { name: title, label: Title, widget: string }
+      - name: type
+        label: Type
+        widget: select
+        options: [keynote, talk, workshop, conference, panel, seminar]
+        default: talk
+      - { name: startDate, label: Start date, widget: datetime, format: 'YYYY-MM-DD', date_format: 'YYYY-MM-DD', time_format: false }
+      - { name: endDate, label: End date, widget: datetime, required: false, format: 'YYYY-MM-DD', date_format: 'YYYY-MM-DD', time_format: false }
+      - { name: location, label: Location, widget: string, required: false }
+      - { name: people, label: People involved, widget: list, required: false }
+      - { name: featured, label: Featured, widget: boolean, required: false, default: false }
+      - name: links
+        label: Links
+        widget: object
+        required: false
+        collapsed: true
+        fields:
+          - { name: slides, label: Slides, widget: string, required: false }
+          - { name: video, label: Video, widget: string, required: false }
+          - { name: recording, label: Recording, widget: string, required: false }
+          - { name: external, label: External page, widget: string, required: false }
+      - { name: body, label: Description, widget: markdown, required: false }
