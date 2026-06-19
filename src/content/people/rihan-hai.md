@@ -2,6 +2,7 @@
 name: Rihan Hai
 role: PI
 title: Assistant Professor · Group Leader
+photo: /uploads/rihan.jpg
 order: 1
 featured: true
 interests:
