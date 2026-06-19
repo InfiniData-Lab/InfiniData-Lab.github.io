@@ -85,3 +85,26 @@ export interface EventItem {
 	};
 	featured?: boolean;
 }
+
+export type OpeningType =
+	| 'PhD'
+	| 'Postdoc'
+	| 'MSc Thesis'
+	| 'MSc Project'
+	| 'BSc Project'
+	| 'Internship'
+	| 'Other';
+
+export interface Opening {
+	title: string;
+	type?: OpeningType;
+	status?: 'open' | 'closed';
+	pillars?: string[];
+	deadline?: string;
+	links?: {
+		apply?: string;
+		contact?: string;
+	};
+	featured?: boolean;
+	order?: number;
+}

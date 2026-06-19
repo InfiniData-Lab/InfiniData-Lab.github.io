@@ -191,3 +191,49 @@ collections:
           - { name: recording, label: Recording, widget: string, required: false }
           - { name: external, label: External page, widget: string, required: false }
       - { name: body, label: Description, widget: markdown, required: false }
+
+  - name: openings
+    label: Openings
+    label_singular: Opening
+    folder: src/content/openings
+    create: true
+    identifier_field: title
+    slug: '{{slug}}'
+    summary: '{{title}} — {{fields.type}}'
+    sortable_fields: [order, deadline, title]
+    fields:
+      - { name: title, label: Title, widget: string, hint: 'e.g. MSc Thesis: …, PhD Position: …' }
+      - name: type
+        label: Type
+        widget: select
+        default: MSc Thesis
+        options:
+          - PhD
+          - Postdoc
+          - MSc Thesis
+          - MSc Project
+          - BSc Project
+          - Internship
+          - Other
+      - { name: status, label: Status, widget: select, options: [open, closed], default: open, hint: 'Closed openings are hidden from the site' }
+      - name: pillars
+        label: Research pillars
+        widget: select
+        multiple: true
+        required: false
+        options:
+          - AI in Data & Model Lakes
+          - Federated & Private Learning
+          - Quantum Data Management
+      - { name: deadline, label: Application deadline, widget: datetime, required: false, format: 'YYYY-MM-DD', date_format: 'YYYY-MM-DD', time_format: false, hint: 'Leave empty for rolling / open-ended' }
+      - { name: order, label: Sort order, widget: number, required: false, value_type: int }
+      - { name: featured, label: Featured, widget: boolean, required: false, default: false }
+      - name: links
+        label: Links
+        widget: object
+        required: false
+        collapsed: true
+        fields:
+          - { name: apply, label: Apply / vacancy URL, widget: string, required: false }
+          - { name: contact, label: Contact email, widget: string, required: false }
+      - { name: body, label: Description, widget: markdown }

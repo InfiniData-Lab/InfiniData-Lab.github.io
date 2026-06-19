@@ -1,5 +1,5 @@
 import type { Component } from 'svelte';
-import type { Person, Project, Publication, BlogPost, EventItem } from './types';
+import type { Person, Project, Publication, BlogPost, EventItem, Opening } from './types';
 
 export interface Entry<T> {
 	slug: string;
@@ -46,6 +46,11 @@ export function getEvents(): Entry<EventItem>[] {
 	return toEntries<EventItem>(mods).sort(
 		(a, b) => +new Date(b.meta.startDate) - +new Date(a.meta.startDate)
 	);
+}
+
+export function getOpenings(): Entry<Opening>[] {
+	const mods = import.meta.glob('/src/content/openings/*.md', { eager: true }) as Record<string, Mod<Opening>>;
+	return toEntries<Opening>(mods).sort((a, b) => (a.meta.order ?? 99) - (b.meta.order ?? 99));
 }
 
 export const bySlug = <T>(entries: Entry<T>[], slug: string): Entry<T> | undefined =>
