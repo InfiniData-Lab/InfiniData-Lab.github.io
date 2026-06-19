@@ -2,6 +2,7 @@
 name: Yuandou Wang
 role: Postdoc
 title: Postdoctoral Researcher
+photo: /uploads/Yuandou-Wang.jpg
 order: 2
 interests:
   - Distributed data systems
