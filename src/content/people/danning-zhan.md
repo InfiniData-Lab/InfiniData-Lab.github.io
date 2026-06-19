@@ -2,6 +2,7 @@
 name: Danning Zhan
 role: PhD
 title: PhD Candidate
+photo: /uploads/danning zhan-2.jpg
 order: 6
 interests:
   - Data integration
