@@ -1,13 +1,20 @@
 <script lang="ts">
 	import Seo from '$lib/components/Seo.svelte';
+	import Prose from '$lib/components/Prose.svelte';
+	import { getOpenings } from '$lib/content';
 	import { site } from '$lib/config';
-	import { IconMail, IconCheck } from '@tabler/icons-svelte';
+	import { IconMail, IconCheck, IconArrowUpRight, IconCalendar } from '@tabler/icons-svelte';
 
 	const looks = [
 		'A solid foundation in databases, systems, or machine learning',
 		'Strong programming skills and a taste for building real systems',
 		'Curiosity about where data management, AI, and quantum meet'
 	];
+
+	// Closed openings stay in the repo for the record but drop off the public page.
+	const openings = getOpenings().filter((o) => o.meta.status !== 'closed');
+	const fmt = (d: string) =>
+		new Date(d).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
 </script>
 
 <Seo title="Join us" description="Open PhD, MSc, and postdoc opportunities at Infinidata Lab, TU Delft." />
@@ -19,6 +26,51 @@
 		<p>We're always interested in motivated students and researchers who want to shape the next generation of data systems.</p>
 	</div>
 </header>
+
+<section class="container openings">
+	<div class="op-head">
+		<h2>Current openings</h2>
+		{#if openings.length}<span class="op-count">{openings.length}</span>{/if}
+	</div>
+
+	{#if openings.length}
+		<div class="op-list">
+			{#each openings as o (o.slug)}
+				{@const Body = o.component}
+				<article class="op">
+					<div class="op-top">
+						<span class="op-type">{o.meta.type ?? 'Opening'}</span>
+						{#if o.meta.deadline}
+							<span class="op-deadline"><IconCalendar size={14} /> Apply by {fmt(o.meta.deadline)}</span>
+						{/if}
+					</div>
+					<h3>{o.meta.title}</h3>
+					{#if o.meta.pillars?.length}
+						<div class="tags">
+							{#each o.meta.pillars as p}<span class="tag">{p}</span>{/each}
+						</div>
+					{/if}
+					<Prose><Body /></Prose>
+					{#if o.meta.links?.apply || o.meta.links?.contact}
+						<div class="op-actions">
+							{#if o.meta.links?.apply}
+								<a class="btn btn-primary btn-sm" href={o.meta.links.apply} target="_blank" rel="noreferrer">Apply / details <IconArrowUpRight size={15} /></a>
+							{/if}
+							{#if o.meta.links?.contact}
+								<a class="btn btn-ghost btn-sm" href="mailto:{o.meta.links.contact}"><IconMail size={15} /> Enquire</a>
+							{/if}
+						</div>
+					{/if}
+				</article>
+			{/each}
+		</div>
+	{:else}
+		<p class="op-empty">
+			No specific openings are listed right now — but we always welcome strong open applications.
+			If our research fits your interests, email {site.pi} and we'll find a topic together.
+		</p>
+	{/if}
+</section>
 
 <div class="container">
 	<div class="join-grid">
@@ -47,6 +99,86 @@
 </div>
 
 <style>
+	.openings {
+		padding: 44px 0 4px;
+	}
+	.op-head {
+		display: flex;
+		align-items: center;
+		gap: 12px;
+		margin-bottom: 22px;
+	}
+	.op-head h2 {
+		font-size: 24px;
+	}
+	.op-count {
+		font-family: var(--font-mono);
+		font-size: 13px;
+		color: var(--faint);
+		background: var(--surface-2);
+		padding: 2px 10px;
+		border-radius: 999px;
+	}
+	.op-list {
+		display: flex;
+		flex-direction: column;
+		gap: 16px;
+	}
+	.op {
+		background: var(--surface);
+		border: 1px solid var(--line);
+		border-radius: var(--radius-lg);
+		padding: 24px 26px;
+	}
+	.op-top {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 14px;
+		flex-wrap: wrap;
+		margin-bottom: 12px;
+	}
+	.op-type {
+		font-family: var(--font-mono);
+		font-size: 12px;
+		font-weight: 500;
+		letter-spacing: 0.06em;
+		text-transform: uppercase;
+		color: var(--brand-2);
+		background: color-mix(in srgb, var(--brand-2) 13%, transparent);
+		border: 1px solid color-mix(in srgb, var(--brand-2) 28%, transparent);
+		padding: 4px 11px;
+		border-radius: 999px;
+	}
+	.op-deadline {
+		display: inline-flex;
+		align-items: center;
+		gap: 6px;
+		font-family: var(--font-mono);
+		font-size: 13px;
+		color: var(--muted);
+	}
+	.op h3 {
+		font-size: 21px;
+		margin-bottom: 12px;
+	}
+	.op .tags {
+		margin-bottom: 14px;
+	}
+	.op-actions {
+		display: flex;
+		gap: 12px;
+		flex-wrap: wrap;
+		margin-top: 18px;
+	}
+	.op-empty {
+		color: var(--muted);
+		background: var(--surface);
+		border: 1px dashed var(--line-2);
+		border-radius: var(--radius-lg);
+		padding: 28px;
+	}
+
 	.join-grid {
 		display: grid;
 		grid-template-columns: 1.6fr 1fr;
