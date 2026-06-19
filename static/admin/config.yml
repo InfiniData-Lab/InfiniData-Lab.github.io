@@ -12,6 +12,7 @@ backend:
   name: github
   repo: InfiniData-Lab/InfiniData-Lab.github.io
   branch: main
+  base_url: https://sveltia-cms-auth.infinidata-lab.workers.dev
 
 local_backend: true
 
