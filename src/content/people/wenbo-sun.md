@@ -2,6 +2,7 @@
 name: Wenbo Sun
 role: PhD
 title: PhD Candidate
+photo: /uploads/wenbosun.jpg
 order: 5
 interests:
   - In-database ML
