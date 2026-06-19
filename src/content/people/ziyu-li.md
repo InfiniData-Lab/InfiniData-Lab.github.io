@@ -2,6 +2,7 @@
 name: Ziyu Li
 role: Alumni
 title: Former PhD / Postdoc
+photo: /uploads/vomLwIb8_400x400.jpg
 order: 7
 interests:
   - Model zoos
