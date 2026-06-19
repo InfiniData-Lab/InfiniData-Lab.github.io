@@ -2,6 +2,7 @@
 name: Aditya Shankar
 role: PhD
 title: PhD Candidate
+photo: /uploads/shankar.jpg
 order: 3
 interests:
   - Federated learning
