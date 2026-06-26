@@ -9,9 +9,11 @@
 	const pillars = [...new Set(all.flatMap((p) => p.meta.pillars ?? []))];
 	const filters = [
 		{ id: 'all', label: 'All' },
-		{ id: 'journal', label: 'Journal' },
 		{ id: 'conference', label: 'Conference' },
+		{ id: 'journal', label: 'Journal' },
+		{ id: 'workshop', label: 'Workshop' },
 		{ id: 'demo', label: 'Demo' },
+		{ id: 'preprint', label: 'Preprint' },
 		...pillars.map((p) => ({ id: 'pillar:' + p, label: p }))
 	];
 

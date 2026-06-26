@@ -5,7 +5,7 @@
 	import CtaBand from '$lib/components/CtaBand.svelte';
 	import { getProjects, getPublications, featured } from '$lib/content';
 	import { site } from '$lib/config';
-	import { IconArrowRight, IconStack2, IconShieldLock, IconAtom2 } from '@tabler/icons-svelte';
+	import { IconArrowRight, IconStack2, IconAtom2 } from '@tabler/icons-svelte';
 
 	const projects = featured(getProjects()).slice(0, 4);
 	const pubs = getPublications().slice(0, 3);
@@ -35,25 +35,22 @@
 		<div class="section-head">
 			<div>
 				<span class="eyebrow">What we work on</span>
-				<h2>Three research frontiers</h2>
-				<p>We rethink how data is integrated, shared, and processed — from the model lake to the quantum processor.</p>
+				<h2>Data systems, in two directions</h2>
+				<p>Everything we build is a data system. We push in two directions — making data systems work for AI, and inventing data systems for quantum computing.</p>
 			</div>
 		</div>
-		<div class="grid grid-3">
+		<div class="grid grid-2">
 			<div class="card">
 				<div class="ic"><IconStack2 size={24} /></div>
-				<h3>AI in Data &amp; Model Lakes</h3>
-				<p>Bringing data integration and machine learning together, so heterogeneous data and rich model zoos meet in one lake.</p>
-			</div>
-			<div class="card">
-				<div class="ic"><IconShieldLock size={24} /></div>
-				<h3>Federated &amp; Private Learning</h3>
-				<p>Training and synthetic-data generation across organisational silos — without ever sharing the raw data.</p>
+				<p class="tagline">Data Systems for AI</p>
+				<h3>AI in Data Lakes</h3>
+				<p>We bring machine learning to the data lake — integrating scattered data into training sets, discovering and serving models, and generating synthetic data across silos.</p>
 			</div>
 			<div class="card">
 				<div class="ic"><IconAtom2 size={24} /></div>
+				<p class="tagline">Data Systems for Quantum Computing</p>
 				<h3>Quantum Data Management</h3>
-				<p>Reimagining query optimisation, entity matching, and anomaly detection for the NISQ-era quantum processor.</p>
+				<p>We reinvent data management for quantum computers — simulating circuits inside a database, compiling quantum queries, and managing data in the NISQ era.</p>
 			</div>
 		</div>
 	</div>

@@ -4,13 +4,14 @@ authors:
   - Aditya Shankar
   - Hans Brouwer
   - Rihan Hai
-  - Lydia Chen
+  - Lydia Y. Chen
 year: 2024
 venue: ICDE
 type: conference
 pillars:
-  - Federated & Private Learning
+  - AI in Data Lakes
+links:
+  arxiv: https://arxiv.org/abs/2404.03299
 ---
 
-Generating synthetic tabular data across feature-partitioned silos using latent diffusion, without
-sharing raw records.
+Generating synthetic tabular data across feature-partitioned silos using latent diffusion, without sharing raw records.

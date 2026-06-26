@@ -9,7 +9,9 @@ year: 2025
 venue: EDBT
 type: conference
 pillars:
-  - AI in Data & Model Lakes
+  - AI in Data Lakes
+links:
+  doi: https://doi.org/10.48786/edbt.2025.103
 ---
 
 Showing how relational query engines can serve large language model workloads end to end.

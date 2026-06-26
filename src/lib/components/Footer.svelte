@@ -15,9 +15,8 @@
 			</div>
 			<div>
 				<h5>Research</h5>
-				<a href="/research">Data &amp; Model Lakes</a>
-				<a href="/research">Federated Learning</a>
-				<a href="/research">Quantum Data</a>
+				<a href="/research">AI in Data Lakes</a>
+				<a href="/research">Quantum Data Management</a>
 			</div>
 			<div>
 				<h5>Explore</h5>

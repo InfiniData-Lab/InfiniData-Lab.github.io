@@ -86,7 +86,7 @@
 			<p class="lede">Funded PhD and postdoc openings are posted on the TU Delft vacancies portal. If nothing is listed that fits, a short, well-argued email is still worth sending.</p>
 
 			<h2 class="mt">MSc thesis &amp; projects</h2>
-			<p class="lede">TU Delft MSc students can do a thesis or research project with us across all three research lines. Reach out with your interests and we'll find a topic together.</p>
+			<p class="lede">TU Delft MSc students can do a thesis or research project with us across both research directions. Reach out with your interests and we'll find a topic together.</p>
 		</div>
 
 		<aside class="apply">

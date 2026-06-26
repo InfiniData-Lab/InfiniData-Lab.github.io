@@ -5,7 +5,7 @@ export const site = {
 	name: 'Infinidata Lab',
 	tagline: 'Data management for the age of AI',
 	description:
-		'Infinidata Lab at TU Delft builds the next generation of data systems — uniting data lakes with machine learning, privacy-preserving federated learning, and quantum data management.',
+		'Infinidata Lab at TU Delft builds data systems for the age of AI and quantum computing — bringing machine learning to the data lake, and reinventing data management for quantum processors.',
 	institution: 'Delft University of Technology',
 	faculty: 'Faculty of EEMCS · Web Information Systems',
 	pi: 'Dr. Rihan Hai',
