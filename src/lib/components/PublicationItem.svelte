@@ -2,6 +2,7 @@
 	import type { Entry } from '$lib/content';
 	import type { Publication } from '$lib/content/types';
 	import { internalAuthors } from '$lib/config';
+	import VenueBadge from '$lib/components/VenueBadge.svelte';
 	import {
 		IconFileText,
 		IconLink,
@@ -23,7 +24,7 @@
 		{#each p.authors as a, i}<span class:me={internalAuthors.includes(a)}>{a}</span>{#if i < p.authors.length - 1}<span class="sep">, </span>{/if}{/each}
 	</p>
 	<div class="pub-foot">
-		<span class="tag venue">{p.venue}{#if p.year}&nbsp;{p.year}{/if}</span>
+		<VenueBadge venue={p.venue} year={p.year} />
 		{#if p.award}<span class="tag award">{p.award}</span>{/if}
 		{#if p.links}
 			<span class="links">

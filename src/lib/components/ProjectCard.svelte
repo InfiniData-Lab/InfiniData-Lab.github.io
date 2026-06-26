@@ -1,6 +1,7 @@
 <script lang="ts">
 	import type { Entry } from '$lib/content';
 	import type { Project } from '$lib/content/types';
+	import VenueBadge from '$lib/components/VenueBadge.svelte';
 	import {
 		IconFileText,
 		IconBrandGithub,
@@ -21,7 +22,7 @@
 
 	{#if p.venue || p.award || p.tags?.length}
 		<div class="tags">
-			{#if p.venue}<span class="tag venue">{p.venue}</span>{/if}
+			{#if p.venue}<VenueBadge venue={p.venue} />{/if}
 			{#if p.award}<span class="tag award">{p.award}</span>{/if}
 			{#each p.tags ?? [] as t}<span class="tag">{t}</span>{/each}
 		</div>

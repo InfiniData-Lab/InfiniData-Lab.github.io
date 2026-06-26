@@ -1,9 +1,9 @@
 ---
-title: 'MSc Thesis / BSc Project: Model Discovery in Data & Model Lakes'
+title: 'MSc Thesis / BSc Project: Model Discovery in Data Lakes'
 type: MSc Thesis
 status: open
 pillars:
-  - AI in Data & Model Lakes
+  - AI in Data Lakes
 order: 3
 links:
   contact: R.Hai@tudelft.nl

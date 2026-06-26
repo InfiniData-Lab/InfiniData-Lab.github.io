@@ -3,23 +3,20 @@
 	import ProjectCard from '$lib/components/ProjectCard.svelte';
 	import PublicationItem from '$lib/components/PublicationItem.svelte';
 	import { getProjects, getPublications } from '$lib/content';
-	import { IconStack2, IconShieldLock, IconAtom2 } from '@tabler/icons-svelte';
+	import { IconStack2, IconAtom2 } from '@tabler/icons-svelte';
 
 	const pillars = [
 		{
-			id: 'AI in Data & Model Lakes',
+			id: 'AI in Data Lakes',
+			kicker: 'Data Systems for AI',
 			icon: IconStack2,
-			blurb: 'We bring data integration and machine learning together — so heterogeneous data and rich model zoos meet in one lake, and serving models becomes a query.'
-		},
-		{
-			id: 'Federated & Private Learning',
-			icon: IconShieldLock,
-			blurb: 'We train models and generate synthetic data across organisational silos, extracting value from data without ever moving the raw records.'
+			blurb: 'We bring machine learning and data lakes together: integrating scattered, heterogeneous data into ML-ready training sets, discovering and selecting models from large model zoos, serving large language models straight from a database, and generating synthetic data across organisational silos without sharing raw records.'
 		},
 		{
 			id: 'Quantum Data Management',
+			kicker: 'Data Systems for Quantum Computing',
 			icon: IconAtom2,
-			blurb: 'We rethink classic data-management problems — query optimisation, entity matching, anomaly detection — for the NISQ-era quantum processor.'
+			blurb: 'We reinvent data management for the quantum era — simulating quantum circuits inside a relational database, compiling database queries to quantum primitives, and charting how data should be stored, queried, and managed on noisy intermediate-scale (NISQ) quantum processors.'
 		}
 	];
 
@@ -29,13 +26,13 @@
 	const pubFor = (id: string) => pubs.filter((p) => p.meta.pillars?.includes(id));
 </script>
 
-<Seo title="Research" description="Three research frontiers at Infinidata Lab: AI in data and model lakes, federated and private learning, and quantum data management." />
+<Seo title="Research" description="Two research directions at Infinidata Lab: data systems for AI (AI in data lakes) and data systems for quantum computing (quantum data management)." />
 
 <header class="page-head">
 	<div class="container">
 		<span class="eyebrow">What we work on</span>
 		<h1>Research</h1>
-		<p>Our work spans three connected frontiers, all asking how data should be managed when AI is the primary consumer.</p>
+		<p>Everything we build is a data system. Our research runs in two directions — making data systems work for AI, and inventing data systems for quantum computing.</p>
 	</div>
 </header>
 
@@ -48,6 +45,7 @@
 			<div class="pillar-head">
 				<div class="ic"><Icon size={26} /></div>
 				<div>
+					<span class="eyebrow">{pillar.kicker}</span>
 					<h2>{pillar.id}</h2>
 					<p>{pillar.blurb}</p>
 				</div>
@@ -102,6 +100,10 @@
 	}
 	.pillar-head p {
 		color: var(--muted);
+	}
+	.pillar-head .eyebrow {
+		display: block;
+		margin-bottom: 8px;
 	}
 	.sub {
 		font-family: var(--font-mono);

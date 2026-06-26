@@ -3,7 +3,7 @@ title: 'MSc Thesis: Synthetic Data Generation across Federated Silos'
 type: MSc Thesis
 status: open
 pillars:
-  - Federated & Private Learning
+  - AI in Data Lakes
 order: 2
 links:
   contact: R.Hai@tudelft.nl

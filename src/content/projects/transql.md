@@ -5,7 +5,7 @@ status: active
 order: 4
 featured: true
 pillars:
-  - AI in Data & Model Lakes
+  - AI in Data Lakes
 tags:
   - LLM serving
   - SQL

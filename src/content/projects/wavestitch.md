@@ -5,7 +5,7 @@ status: active
 order: 3
 featured: true
 pillars:
-  - Federated & Private Learning
+  - AI in Data Lakes
 tags:
   - Diffusion
   - Generative
