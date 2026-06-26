@@ -9,6 +9,7 @@ venue: SIGMOD
 type: demo
 pillars:
   - AI in Data Lakes
+award: Best-Demo runner-up
 links:
   doi: https://doi.org/10.1145/3722212.3725093
 ---
