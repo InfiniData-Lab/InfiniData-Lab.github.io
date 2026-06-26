@@ -16,7 +16,7 @@
 <header class="hero">
 	<div class="container">
 		<span class="hero-badge"><span class="dot"></span> TU Delft · Web Information Systems</span>
-		<h1>Data management for the <span class="grad-text">age of AI</span>.</h1>
+		<h1>Data management for the <span class="grad-text">age of AI and Quantum Computing</span></h1>
 		<p class="hero-sub">{site.description}</p>
 		<div class="hero-actions">
 			<a class="btn btn-primary" href="/research">Explore our research <IconArrowRight size={18} /></a>

@@ -82,11 +82,8 @@
 				{/each}
 			</ul>
 
-			<h2 class="mt">PhD &amp; postdoc</h2>
-			<p class="lede">Funded PhD and postdoc openings are posted on the TU Delft vacancies portal. If nothing is listed that fits, a short, well-argued email is still worth sending.</p>
-
-			<h2 class="mt">MSc thesis &amp; projects</h2>
-			<p class="lede">TU Delft MSc students can do a thesis or research project with us across both research directions. Reach out with your interests and we'll find a topic together.</p>
+			<h2 class="mt">Funded PhD positions</h2>
+			<p class="lede">Funded PhD vacancies are advertised on the TU Delft vacancies portal. If nothing is listed that fits but our research excites you, a short, well-argued email is still worth sending.</p>
 		</div>
 
 		<aside class="apply">
