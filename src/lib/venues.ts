@@ -14,6 +14,7 @@ const TABLE: { test: RegExp; label: string; group: string; publisher?: string }[
 	{ test: /sigmod\s*workshop|q-?data/i, label: 'SIGMOD Workshop', group: 'acm', publisher: 'ACM' },
 	{ test: /sigmod/i, label: 'SIGMOD', group: 'acm', publisher: 'ACM' },
 	{ test: /cikm/i, label: 'CIKM', group: 'acm', publisher: 'ACM' },
+	{ test: /iclr/i, label: 'ICLR', group: 'other' },
 	{ test: /tkde|trans.*knowl/i, label: 'IEEE TKDE', group: 'ieee' },
 	{ test: /ieee\s*access/i, label: 'IEEE Access', group: 'ieee' },
 	{ test: /icdew/i, label: 'ICDEW', group: 'ieee', publisher: 'IEEE' },

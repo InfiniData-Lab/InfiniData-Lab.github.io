@@ -20,6 +20,19 @@ media_folder: static/uploads
 public_folder: /uploads
 
 collections:
+  - name: settings
+    label: Site settings
+    files:
+      - name: homepage
+        label: Homepage
+        file: src/content/settings/homepage.json
+        fields:
+          - { name: publicationStartYear, label: Count publications from, widget: number, value_type: int, min: 2023, hint: 'The count is calculated from unique conference and demo records, including PVLDB. See docs/publication-audit.md for the scope.' }
+          - { name: publicationStatLabel, label: Publication count label, widget: string }
+          - { name: publicationStatNote, label: Publication count explanation, widget: text }
+          - { name: newsEyebrow, label: News section eyebrow, widget: string }
+          - { name: newsHeading, label: News section heading, widget: string }
+
   - name: people
     label: People
     label_singular: Person
@@ -79,8 +92,19 @@ collections:
           - AI in Data Lakes
           - Quantum Data Management
       - { name: tags, label: Tags, widget: list, required: false }
-      - { name: venue, label: Venue badge, widget: string, required: false, hint: 'e.g. SIGMOD 2025' }
+      - { name: venue, label: Venue badge, widget: string, required: false, hint: 'e.g. SIGMOD 2026' }
       - { name: award, label: Award, widget: string, required: false }
+      - name: publications
+        label: Related publications
+        widget: relation
+        collection: publications
+        search_fields: [title]
+        display_fields: ['{{title}} ({{year}})']
+        value_field: '{{slug}}'
+        multiple: true
+        required: false
+        max: 5
+        hint: 'Select up to five papers directly associated with this project. Only these papers appear on its page.'
       - { name: image, label: Image, widget: image, required: false }
       - name: links
         label: Links
@@ -107,7 +131,7 @@ collections:
     fields:
       - { name: title, label: Title, widget: string }
       - { name: authors, label: Authors, widget: list, hint: 'one per item, full names' }
-      - { name: year, label: Year, widget: number, value_type: int }
+      - { name: year, label: Year, widget: number, value_type: int, hint: 'Use the conference edition for conference papers (e.g. SIGMOD 2026), and the publication year for standalone journals and preprints.' }
       - { name: venue, label: Venue, widget: string, hint: 'e.g. SIGMOD, PVLDB, ICDE' }
       - name: type
         label: Type
@@ -132,12 +156,29 @@ collections:
         fields:
           - { name: pdf, label: PDF, widget: string, required: false }
           - { name: doi, label: DOI, widget: string, required: false }
-          - { name: arxiv, label: arXiv, widget: string, required: false }
+          - { name: arxiv, label: arXiv, widget: string, required: false, hint: "Use only when no published version is available. Once published, remove this link and add the publication DOI or published PDF." }
           - { name: code, label: Code, widget: string, required: false }
           - { name: dataset, label: Dataset, widget: string, required: false }
           - { name: slides, label: Slides, widget: string, required: false }
           - { name: video, label: Video, widget: string, required: false }
       - { name: body, label: Abstract, widget: markdown, required: false }
+
+  - name: news
+    label: News & announcements
+    label_singular: News item
+    folder: src/content/news
+    create: true
+    identifier_field: title
+    slug: '{{slug}}'
+    summary: '{{title}} — {{fields.date}}'
+    sortable_fields: [date, title]
+    fields:
+      - { name: title, label: Title, widget: string }
+      - { name: date, label: Date, widget: datetime, format: 'YYYY-MM-DD', date_format: 'YYYY-MM-DD', time_format: false }
+      - { name: category, label: Category, widget: select, options: [News, Publication, Event, Award], default: News }
+      - { name: summary, label: Summary, widget: text, hint: 'One or two sentences for the homepage.' }
+      - { name: link, label: Read more link, widget: string, required: false, hint: 'A site path such as /projects/transql or a full https:// URL.' }
+      - { name: featured, label: Show on homepage, widget: boolean, default: true, hint: 'The three newest selected news items appear in Fresh from the lab.' }
 
   - name: blog
     label: Blog posts

@@ -10,6 +10,10 @@ tags:
   - Data integration
   - Machine learning
 venue: IEEE TKDE 2024
+publications:
+  - amalur
+  - amalur-data-integration-ml
+  - amalur-cidr
 links:
   github: https://github.com/infinidata-team
 ---

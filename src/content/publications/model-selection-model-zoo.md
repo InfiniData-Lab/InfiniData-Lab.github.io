@@ -14,7 +14,6 @@ pillars:
   - AI in Data Lakes
 links:
   doi: https://doi.org/10.1109/ICDE60146.2024.00088
-  arxiv: https://arxiv.org/abs/2404.03988
 ---
 
 Selecting the best pre-trained model from a large model zoo by framing the problem as graph learning.

@@ -1,14 +1,19 @@
 <script lang="ts">
 	import Seo from '$lib/components/Seo.svelte';
 	import ProjectCard from '$lib/components/ProjectCard.svelte';
-	import PublicationItem from '$lib/components/PublicationItem.svelte';
 	import CtaBand from '$lib/components/CtaBand.svelte';
-	import { getProjects, getPublications, featured } from '$lib/content';
+	import { getProjects, getPublications, getNews, featured } from '$lib/content';
+	import { conferencePublications } from '$lib/content/publication-stats';
+	import homepage from '../content/settings/homepage.json';
 	import { site } from '$lib/config';
 	import { IconArrowRight, IconStack2, IconAtom2 } from '@tabler/icons-svelte';
 
 	const projects = featured(getProjects()).slice(0, 4);
-	const pubs = getPublications().slice(0, 3);
+	const news = featured(getNews()).slice(0, 3);
+	const publicationCount = conferencePublications(getPublications(), homepage.publicationStartYear).length;
+	const formatDate = (date: string) => new Date(date).toLocaleDateString('en-GB', {
+		day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC'
+	});
 </script>
 
 <Seo />
@@ -24,7 +29,7 @@
 		</div>
 		<div class="hero-meta">
 			<span>Led by <b>Dr. Rihan Hai</b>, Assistant Professor</span>
-			<span><b>30+</b> papers at SIGMOD · VLDB · ICDE</span>
+			<span title={homepage.publicationStatNote}><b>{publicationCount}</b> {homepage.publicationStatLabel} since {homepage.publicationStartYear}</span>
 			<span><b>NWO VENI</b> laureate</span>
 		</div>
 	</div>
@@ -43,13 +48,13 @@
 			<div class="card">
 				<div class="ic"><IconStack2 size={24} /></div>
 				<p class="tagline">Data Systems for AI</p>
-				<h3>AI in Data Lakes</h3>
+				<h3><a href="/research#ai-in-data-lakes">AI in Data Lakes</a></h3>
 				<p>We bring machine learning to the data lake — integrating scattered data into training sets, discovering and serving models, and generating synthetic data across silos.</p>
 			</div>
 			<div class="card">
 				<div class="ic"><IconAtom2 size={24} /></div>
 				<p class="tagline">Data Systems for Quantum Computing</p>
-				<h3>Quantum Data Management</h3>
+				<h3><a href="/research#quantum-data-management">Quantum Data Management</a></h3>
 				<p>We reinvent data management for quantum computers — simulating circuits inside a database, compiling quantum queries, and managing data in the NISQ era.</p>
 			</div>
 		</div>
@@ -73,22 +78,35 @@
 	</div>
 </section>
 
-<section class="section pt0">
+{#if news.length}
+<section class="section pt0" aria-labelledby="news-heading">
 	<div class="container">
 		<div class="section-head">
 			<div>
-				<span class="eyebrow">Latest publications</span>
-				<h2>Fresh from the lab</h2>
+				<span class="eyebrow">{homepage.newsEyebrow}</span>
+				<h2 id="news-heading">{homepage.newsHeading}</h2>
 			</div>
-			<a class="link-arrow" href="/publications">All publications <IconArrowRight size={16} /></a>
 		</div>
-		<div class="pub-list">
-			{#each pubs as pub (pub.slug)}
-				<PublicationItem entry={pub} />
+		<div class="grid grid-3">
+			{#each news as item (item.slug)}
+				<article class="card news-card">
+					<div class="news-meta">
+						<span class="tag">{item.meta.category}</span>
+						<time datetime={item.meta.date}>{formatDate(item.meta.date)}</time>
+					</div>
+					<h3>
+						{#if item.meta.link}<a href={item.meta.link}>{item.meta.title}</a>{:else}{item.meta.title}{/if}
+					</h3>
+					<p>{item.meta.summary}</p>
+					{#if item.meta.link}
+						<a class="link-arrow news-link" href={item.meta.link} aria-label="Read more: {item.meta.title}">Read more <IconArrowRight size={16} /></a>
+					{/if}
+				</article>
 			{/each}
 		</div>
 	</div>
 </section>
+{/if}
 
 <section class="section pt0">
 	<div class="container">
@@ -105,10 +123,25 @@
 	.pt0 {
 		padding-top: 0;
 	}
-	.pub-list {
+	.news-card {
 		display: flex;
 		flex-direction: column;
-		gap: 14px;
+	}
+	.news-meta {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		gap: 8px 12px;
+		margin-bottom: 18px;
+		font-size: 13px;
+		color: var(--muted);
+	}
+	.news-card h3 a:hover {
+		color: var(--brand-2);
+	}
+	.news-link {
+		margin-top: auto;
+		padding-top: 20px;
 	}
 
 	.hero {

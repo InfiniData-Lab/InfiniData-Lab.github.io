@@ -10,6 +10,8 @@ tags:
   - Diffusion
   - Privacy
 venue: ICDE 2024
+publications:
+  - silofuse
 links:
   github: https://github.com/infinidata-team
 ---

@@ -11,7 +11,6 @@ pillars:
   - Quantum Data Management
 links:
   doi: https://doi.org/10.1109/ICDE60146.2024.00410
-  arxiv: https://arxiv.org/abs/2403.02856
 ---
 
 A tutorial mapping the emerging research agenda where data management meets quantum computing.

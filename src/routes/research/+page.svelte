@@ -8,12 +8,14 @@
 	const pillars = [
 		{
 			id: 'AI in Data Lakes',
+			anchor: 'ai-in-data-lakes',
 			kicker: 'Data Systems for AI',
 			icon: IconStack2,
 			blurb: 'We bring machine learning and data lakes together: integrating scattered, heterogeneous data into ML-ready training sets, discovering and selecting models from large model zoos, serving large language models straight from a database, and generating synthetic data across organisational silos without sharing raw records.'
 		},
 		{
 			id: 'Quantum Data Management',
+			anchor: 'quantum-data-management',
 			kicker: 'Data Systems for Quantum Computing',
 			icon: IconAtom2,
 			blurb: 'We reinvent data management for the quantum era — simulating quantum circuits inside a relational database, compiling database queries to quantum primitives, and charting how data should be stored, queried, and managed on noisy intermediate-scale (NISQ) quantum processors.'
@@ -33,6 +35,15 @@
 		<span class="eyebrow">What we work on</span>
 		<h1>Research</h1>
 		<p>Everything we build is a data system. Our research runs in two directions — making data systems work for AI, and inventing data systems for quantum computing.</p>
+		<nav class="topic-nav" aria-label="Research topics">
+			<span class="topic-label">Choose a research topic</span>
+			<div class="topic-links">
+				{#each pillars as pillar (pillar.id)}
+					{@const Icon = pillar.icon}
+					<a class="btn btn-ghost" href="#{pillar.anchor}"><Icon size={18} /> {pillar.id}</a>
+				{/each}
+			</div>
+		</nav>
 	</div>
 </header>
 
@@ -41,12 +52,12 @@
 		{@const Icon = pillar.icon}
 		{@const ps = projFor(pillar.id)}
 		{@const pl = pubFor(pillar.id)}
-		<section class="pillar" class:divided={i > 0}>
+		<section class="pillar" id={pillar.anchor} aria-labelledby="{pillar.anchor}-heading" class:divided={i > 0} tabindex="-1">
 			<div class="pillar-head">
 				<div class="ic"><Icon size={26} /></div>
 				<div>
 					<span class="eyebrow">{pillar.kicker}</span>
-					<h2>{pillar.id}</h2>
+					<h2 id="{pillar.anchor}-heading">{pillar.id}</h2>
 					<p>{pillar.blurb}</p>
 				</div>
 			</div>
@@ -69,6 +80,20 @@
 </div>
 
 <style>
+	.topic-nav {
+		margin-top: 28px;
+	}
+	.topic-label {
+		display: block;
+		font-size: 14px;
+		color: var(--muted);
+		margin-bottom: 12px;
+	}
+	.topic-links {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 12px;
+	}
 	.pillar {
 		padding: 40px 0 8px;
 	}

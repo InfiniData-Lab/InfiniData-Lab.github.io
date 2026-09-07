@@ -42,10 +42,29 @@ You can also edit the Markdown files by hand; the frontmatter fields are documen
 | Projects       | `src/content/projects/`      | `featured` ones appear on the homepage           |
 | Publications   | `src/content/publications/`  | filterable by type & research pillar             |
 | Blog posts     | `src/content/blog/`          | sorted by `date`                                 |
+| News           | `src/content/news/`          | three newest featured items appear on the homepage |
 | Events         | `src/content/events/`        | starts empty; `keynote` is just a `type`         |
 
 Images go in `static/uploads/` (keep them small). Videos → YouTube, code → GitHub, datasets →
 HuggingFace; store only the links.
+
+### Homepage news and project publications
+
+- In **News & announcements**, add a dated summary and choose News, Publication, Event, or Award.
+  An optional link can point to a project, publication, blog post, or external event page.
+  **Show on homepage** selects entries for “Fresh from the lab”; the three newest appear.
+  Announcements are editorial selections, so adding a publication or event alone does not create news.
+- In **Projects → Related publications**, select up to five directly associated papers. These are
+  stored as publication slugs in the project's Markdown, so titles and links stay in sync with the
+  Publications collection. An empty selection hides the related-publications section.
+- Publication `year` follows the conference edition for conference papers; TranSQL+ and WaveStitch
+  are SIGMOD 2026 papers whose PACMMOD records were published in 2025. Keep one entry per paper,
+  using the published DOI or PDF under Links. Include an arXiv link only while no published
+  version is available, and remove it once a published version is confirmed.
+- **Site settings → Homepage** controls the news headings and publication-statistic wording.
+  The count is calculated from unique conference records since the configured year. See the
+  [publication audit](docs/publication-audit.md) for the 20 counted papers, the narrower
+  SIGMOD/VLDB/ICDE subtotal, exclusions, and sources.
 
 ## Project structure
 

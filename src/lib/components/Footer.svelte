@@ -15,8 +15,8 @@
 			</div>
 			<div>
 				<h5>Research</h5>
-				<a href="/research">AI in Data Lakes</a>
-				<a href="/research">Quantum Data Management</a>
+				<a href="/research#ai-in-data-lakes">AI in Data Lakes</a>
+				<a href="/research#quantum-data-management">Quantum Data Management</a>
 			</div>
 			<div>
 				<h5>Explore</h5>

@@ -9,7 +9,9 @@ pillars:
 tags:
   - Diffusion
   - Generative
-venue: SIGMOD 2025
+venue: SIGMOD 2026
+publications:
+  - wavestitch
 links:
   github: https://github.com/infinidata-team
 ---

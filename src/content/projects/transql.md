@@ -9,10 +9,15 @@ pillars:
 tags:
   - LLM serving
   - SQL
-venue: SIGMOD 2025
-award: Best demo runner-up
+venue: SIGMOD 2026
+award: Best SIGMOD demo runner-up
+publications:
+  - database-is-all-you-need
+  - database-as-runtime
+  - transql
 links:
   github: https://github.com/infinidata-team
+  paper: https://doi.org/10.1145/3769836
 ---
 
 TranSQL serves large language models with relational queries — compiling model inference to SQL so

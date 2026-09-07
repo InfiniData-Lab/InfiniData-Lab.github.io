@@ -12,7 +12,6 @@ pillars:
   - AI in Data Lakes
 links:
   doi: https://doi.org/10.1145/3627673.3679210
-  arxiv: https://arxiv.org/abs/2409.01140
 ---
 
 A demo that answers prediction queries by combining large language models with in-database machine learning.

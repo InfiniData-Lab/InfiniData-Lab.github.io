@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { site } from '$lib/config';
 	let { title, description = site.description }: { title?: string; description?: string } = $props();
-	const full = title ? `${title} — ${site.name}` : `${site.name} — ${site.tagline}`;
+	const full = $derived(title ? `${title} — ${site.name}` : `${site.name} — ${site.tagline}`);
 </script>
 
 <svelte:head>

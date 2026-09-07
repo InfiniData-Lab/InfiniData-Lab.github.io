@@ -22,6 +22,7 @@ export interface Person {
 
 export interface Project {
 	name: string;
+	publications?: string[];
 	tagline?: string;
 	status?: 'active' | 'completed';
 	pillars?: string[];
@@ -67,6 +68,15 @@ export interface BlogPost {
 	excerpt?: string;
 	cover?: string;
 	tags?: string[];
+	featured?: boolean;
+}
+
+export interface NewsItem {
+	title: string;
+	date: string;
+	category: 'News' | 'Publication' | 'Event' | 'Award';
+	summary: string;
+	link?: string;
 	featured?: boolean;
 }
 

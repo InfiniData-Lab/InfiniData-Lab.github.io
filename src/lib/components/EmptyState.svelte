@@ -1,7 +1,7 @@
 <script lang="ts">
-	import type { Component } from 'svelte';
-	let { icon, title, body }: { icon?: Component; title: string; body: string } = $props();
-	const Icon = icon;
+	import type { Icon as TablerIcon } from '@tabler/icons-svelte';
+	let { icon, title, body }: { icon?: TablerIcon; title: string; body: string } = $props();
+	const Icon = $derived(icon);
 </script>
 
 <div class="empty">

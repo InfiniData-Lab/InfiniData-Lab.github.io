@@ -12,12 +12,19 @@
 	} from '@tabler/icons-svelte';
 
 	let { data } = $props();
-	const entry = bySlug(getProjects(), data.slug)!;
-	const p = entry.meta;
-	const Body = entry.component;
-	// Publications that share a pillar with this project.
-	const related = getPublications().filter((pub) =>
-		pub.meta.pillars?.some((x) => p.pillars?.includes(x))
+	const projects = getProjects();
+	const publications = getPublications();
+	const entry = $derived(bySlug(projects, data.slug)!);
+	const p = $derived(entry.meta);
+	const Body = $derived(entry.component);
+	// Resolve only the papers selected for this project in the CMS, in editorial order.
+	const related = $derived(
+		[...new Set(p.publications ?? [])]
+			.flatMap((slug) => {
+				const publication = bySlug(publications, slug);
+				return publication ? [publication] : [];
+			})
+			.slice(0, 5)
 	);
 </script>
 

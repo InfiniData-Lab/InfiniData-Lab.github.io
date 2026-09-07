@@ -1,11 +1,11 @@
 ---
-title: 'TranSQL +: Serving Large Language Models with SQL on Low-Resource Hardware'
+title: 'TranSQL+: Serving Large Language Models with SQL on Low-Resource Hardware'
 authors:
   - Wenbo Sun
   - Qiming Guo
   - Wenlu Wang
   - Rihan Hai
-year: 2025
+year: 2026
 venue: SIGMOD
 type: conference
 pillars:

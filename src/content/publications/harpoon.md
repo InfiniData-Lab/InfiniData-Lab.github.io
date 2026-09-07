@@ -6,12 +6,12 @@ authors:
   - Rihan Hai
   - Lydia Y. Chen
 year: 2026
-venue: arXiv
-type: preprint
+venue: ICLR
+type: conference
 pillars:
   - AI in Data Lakes
 links:
-  arxiv: https://arxiv.org/abs/2602.07875
+  pdf: https://openreview.net/pdf?id=G5g6tDg1ZE
 ---
 
 Generalised manifold guidance for steering conditional tabular diffusion models toward higher-fidelity synthetic data.

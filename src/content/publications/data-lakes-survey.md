@@ -11,7 +11,7 @@ type: journal
 pillars:
   - AI in Data Lakes
 links:
-  doi: https://doi.org/10.1109/ICDE60146.2024.00471
+  doi: https://doi.org/10.1109/TKDE.2023.3270101
 ---
 
 A comprehensive survey of data-lake functions and systems, charting the design space of modern data lakes.
