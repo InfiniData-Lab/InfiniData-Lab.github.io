@@ -1,5 +1,5 @@
 ---
-title: 'Special Guest Lecture: Professor Michael Benedikt and Associate Professor Mahmoud Abo Khamis'
+title: Special Guest Lecture
 date: 2026-09-15
 authors: []
 excerpt: During this year's course on Data Management and AI we are happy to welcome two lecturers from Oxford University as special guests to present their work and provide our students with an insight into state of the art science. Big thanks to Professor Michael Benedikt and Associate Professor Mahmoud Abo Khamis.
@@ -8,7 +8,7 @@ tags: []
 featured: false
 ---
 
-# **Special guest lecture: Logic, databases, machine learning—and life beyond campus**
+# **Logic, databases, machine learning—and life beyond campus**
 
 Tuesday, **15 September at 15:45**, during our regular lecture, we will welcome two guests from the University of Oxford:
 
@@ -33,7 +33,6 @@ We give results showing that the training problem is decidable in polynomial spa
 This is joint work with Alessio Mansutti, to appear in PODS 2027, see
 
 [How (and when) can you fit examples to logic-based hypothesis...](https://arxiv.org/abs/2606.01107 "https://arxiv.org/abs/2606.01107")
-
 
 ### **Associate Professor Mahmoud Abo Khamis**:
 
