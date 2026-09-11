@@ -1,5 +1,5 @@
 ---
-title: 'Special guest lecture: Logic, databases, machine learning—and life beyond campus'
+title: Special guest lecture
 type: talk
 startDate: 2026-09-15
 endDate: 2026-09-15
@@ -11,9 +11,12 @@ featured: false
 links: null
 ---
 
+# **Special guest lecture: Logic, databases, machine learning—and life beyond campus**
+
 Tuesday, **15 September at 15:45**, during our regular lecture, we will welcome two guests from the University of Oxford:
 
 #### **Professor Michael Benedikt**
+
 _How (and When) Can We Train Logically Defined Hypothesis Classes?_
 
 Michael will examine a fundamental question: if a family of machine-learning models is described using logic, can we determine whether one of those models fits a given dataset—and how efficiently?
