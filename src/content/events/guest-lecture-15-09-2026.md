@@ -4,9 +4,7 @@ type: talk
 startDate: 2026-09-15
 endDate: 2026-09-15
 location: Lecture Hall Ampere TU Delft
-people:
-  - Professor Michael Benedikt
-  - Associate Professor Mahmoud Abo Khamis
+people: []
 featured: false
 links: null
 ---
@@ -33,7 +31,6 @@ This directly links to the joint work with Alessio Mansutti which will appear in
 - **From RelationalAI to Oxford faculty in 10 minutes:** Mahmoud’s experience in industry, how theoretical ideas enter real systems, and how that journey shaped his academic career.
 
 This lecture will show why the foundations taught in our course—including relational algebra, Datalog, aggregation and matrix computation—remain highly relevant to cutting-edge AI research and industrial systems.
-
 
 ### Lecture Abstract: How (and when) can we train logically defined hypothesis classes
 
