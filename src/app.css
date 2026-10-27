@@ -103,6 +103,20 @@ img {
 	white-space: nowrap;
 	border: 0;
 }
+.skip-link {
+	position: fixed;
+	left: 12px;
+	top: -100px;
+	z-index: 200;
+	padding: 10px 16px;
+	color: var(--ink);
+	background: var(--surface);
+	border: 1px solid var(--brand);
+	border-radius: 10px;
+}
+.skip-link:focus {
+	top: 12px;
+}
 
 /* ---------- Layout primitives ---------- */
 .container {

@@ -23,6 +23,12 @@ npm run check        # type-check
 
 ## Editing content
 
+### Sharing the website styles
+
+The [standalone style handoff](docs/style-handoff/README.md) contains a single CSS
+file with embedded fonts and an editable HTML starter for matching subpages.
+Run `npm run export:styles` to refresh the CSS from the website's source styles.
+
 ### Locally (no accounts, no credentials)
 
 1. `npm run dev`
@@ -85,14 +91,11 @@ design-mockups/               static HTML design reference (not part of the buil
 
 ## Deploying to GitHub Pages
 
-> Not yet wired up — these are the remaining steps (they need repo access + a free Cloudflare
-> account for the GitHub login).
+Every push to `main` triggers the [deployment workflow](.github/workflows/deploy.yaml).
+It installs Node.js 20 and the npm dependencies, builds the static site into `build/`,
+and publishes that output with GitHub Pages. The repository's Pages source is **GitHub Actions**.
+This is an organisation site served at the domain root, so no base path is needed.
 
-1. **Pages workflow.** Add `.github/workflows/deploy.yml` (build SvelteKit → `actions/upload-pages-artifact`
-   → `actions/deploy-pages`). Set repo **Settings → Pages → Source = GitHub Actions**. This is an org
-   page served at the domain root, so no base path is needed.
-2. **CMS login.** Register a GitHub OAuth app, deploy the [`sveltia/sveltia-cms-auth`](https://github.com/sveltia/sveltia-cms-auth)
-   Cloudflare Worker, and add `backend.base_url: <worker-url>` to `static/admin/config.yml`. Editors
-   then visit `/admin/`, “Sign in with GitHub”, and publish — commits trigger a rebuild.
-
-Because content commits land on `main`, every CMS publish redeploys the site automatically.
+CMS authentication is configured in `static/admin/config.yml`. Editors visit `/admin/`,
+sign in with GitHub, and publish. Content commits land on `main` and trigger the same
+deployment workflow. Check the repository's Actions tab for build and deployment status.

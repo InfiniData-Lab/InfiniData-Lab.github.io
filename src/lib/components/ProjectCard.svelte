@@ -11,13 +11,15 @@
 	} from '@tabler/icons-svelte';
 
 	let { entry }: { entry: Entry<Project> } = $props();
-	const p = entry.meta;
-	const Body = entry.component;
+	const p = $derived(entry.meta);
+	const Body = $derived(entry.component);
+	// Projects with a dedicated page on this site open that page directly.
+	const href = $derived(p.links?.website?.startsWith('/') ? p.links.website : `/projects/${entry.slug}`);
 </script>
 
 <article class="card">
 	{#if p.tagline}<p class="tagline">{p.tagline}</p>{/if}
-	<h3><a href="/projects/{entry.slug}">{p.name}</a></h3>
+	<h3><a {href}>{p.name}</a></h3>
 	<div class="desc"><Body /></div>
 
 	{#if p.venue || p.award || p.tags?.length}
