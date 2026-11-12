@@ -5,7 +5,10 @@ title: Postdoctoral Researcher
 photo: /uploads/pic-yujie.png
 order: null
 featured: false
-interests: []
+interests:
+  - Continual Learning
+  - Quantum Error Correction
+  - Knowledge Transfer
 links: null
 ---
 
