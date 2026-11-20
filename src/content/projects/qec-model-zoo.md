@@ -2,7 +2,7 @@
 name: QEC Model Zoo
 tagline: Benchmarking quantum error correction decoders
 status: active
-order: 1
+order: 0
 featured: true
 pillars:
   - Quantum Data Management
