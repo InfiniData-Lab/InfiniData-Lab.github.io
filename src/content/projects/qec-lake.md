@@ -2,7 +2,7 @@
 name: QEC Lake
 tagline: Data infrastructure for quantum error correction
 status: active
-order: 6
+order: 1
 featured: true
 pillars:
   - Quantum Data Management
@@ -12,11 +12,16 @@ tags:
   - Data lakes
   - Dataset discovery
 venue: PVLDB 2026
+award: ''
 publications:
   - qec-lake
+image: ''
 links:
+  github: ''
   paper: https://www.vldb.org/pvldb/vol19/p4574-hai.pdf
+  dataset: ''
   demo: https://youtu.be/V8lXy5H3e6k
+  website: ''
 ---
 
 QEC Lake brings experimental, simulated, and synthetic quantum error-correction data into a
